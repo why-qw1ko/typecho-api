@@ -50,7 +50,7 @@ public class AuthServiceImpl implements AuthService {
             );
             return jwtTokenProvider.generateToken(authentication);
         } else {
-            // Typecho MD5 密码验证
+            // Typecho MD5 密码验证 (MD5密码暂时失效。)
             String md5Password = cn.hutool.crypto.digest.DigestUtil.md5Hex(dto.getPassword());
             if (!md5Password.equals(user.getPassword())) {
                 throw new BusinessException("用户名或密码错误");
